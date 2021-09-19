@@ -6,7 +6,11 @@ I created this Pain app using HTML5/CSS/JS for learning purpose and decided to s
 PREVIEW : 
 
 
-https://user-images.githubusercontent.com/28671231/133928193-82b515b9-e6a7-412d-bf81-923113ad07e8.mp4
+
+
+
+
+https://user-images.githubusercontent.com/28671231/133939533-3bdf30ad-481d-4483-a11e-e87b30f799e9.mp4
 
 
 
