@@ -9,15 +9,6 @@ const palette = document.querySelectorAll('.color');
 const tools = document.querySelectorAll('.tools');
 const firstColor = document.getElementById('black');
 
-elementPen.addEventListener('click', () => {
-    tool = "pen";
-    ChangeCursor("pen_cursor");
-})
-elementErase.addEventListener('click', () => {
-    tool = "eraser";
-    ChangeCursor("eraser_cursor");
-})
-
 //Select new cursor : 
 function ChangeCursor(cursor) {
     document.body.style.cursor = `url('./img/${cursor}.png'), auto`;
@@ -67,26 +58,8 @@ function OnBegin() {
     });
 }
 
-//Event :
-window.addEventListener('load', () => {
-    OnBegin();
-})
 
-canvas.addEventListener("mousedown", (e) => {
-    isPressed = true;
-    draw(e);
-})
-
-canvas.addEventListener('mouseup', (e) => {
-    isPressed = false;
-    ctx.beginPath();
-})
-
-canvas.addEventListener("mousemove", (e) => {
-    if (!isPressed) return;
-    draw(e);
-})
-
+//Here we draw the line and erase depending on the tool selected : 
 function draw(e) {
     e.preventDefault();
 
@@ -98,3 +71,39 @@ function draw(e) {
     ctx.lineTo(getMousePos(e).x, getMousePos(e).y);
     ctx.stroke();
 }
+
+
+//Event :
+window.addEventListener('load', () => {
+    OnBegin();
+})
+
+canvas.addEventListener("mouseover", () => {
+    ctx.beginPath();
+    isPressed = false;
+})
+
+canvas.addEventListener('mouseup', () => {
+    isPressed = false;
+    ctx.beginPath();
+})
+
+elementPen.addEventListener('click', () => {
+    tool = "pen";
+    ChangeCursor("pen_cursor");
+})
+elementErase.addEventListener('click', () => {
+    tool = "eraser";
+    ChangeCursor("eraser_cursor");
+})
+
+
+canvas.addEventListener("mousedown", (e) => {
+    isPressed = true;
+    draw(e);
+})
+
+canvas.addEventListener("mousemove", (e) => {
+    if (!isPressed) return;
+    draw(e);
+})
