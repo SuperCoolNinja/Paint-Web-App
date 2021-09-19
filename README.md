@@ -6,9 +6,13 @@ I created this Pain app using HTML5/CSS/JS for learning purpose and decided to s
 PREVIEW : 
 
 
-https://cdn.discordapp.com/attachments/554479498721099787/889131339096395806/2021-09-19_14-48-03.mp4
+https://user-images.githubusercontent.com/28671231/133928193-82b515b9-e6a7-412d-bf81-923113ad07e8.mp4
 
 
 
 
 You are free to use it as you need. by @SuperCoolNinja.
+
+
+
+
