@@ -1,19 +1,27 @@
-let canvas = document.getElementById('box');
-let ctx = canvas.getContext('2d');
 let tool = "pen";
-var isPressed = false;
-var elementPen = document.getElementById("pen");
-var elementErase = document.getElementById('eraser');
+let isPressed = false;
+
+const canvas = document.getElementById('box');
+const ctx = canvas.getContext('2d');
+const elementPen = document.getElementById("pen");
+const elementErase = document.getElementById('eraser');
+const palette = document.querySelectorAll('.color');
+const tools = document.querySelectorAll('.tools');
+const firstColor = document.getElementById('black');
 
 elementPen.addEventListener('click', () => {
     tool = "pen";
-    document.body.style.cursor = "url('./img/pen_cursor.png'), auto";
-
+    ChangeCursor("pen_cursor");
 })
-elementErase.addEventListener('click', (e) => {
+elementErase.addEventListener('click', () => {
     tool = "eraser";
-    document.body.style.cursor = "url('./img/eraser_cursor.png'), auto";
+    ChangeCursor("eraser_cursor");
 })
+
+//Select new cursor : 
+function ChangeCursor(cursor) {
+    document.body.style.cursor = `url('./img/${cursor}.png'), auto`;
+}
 
 //Get mouse pos : 
 function getMousePos(mouse) {
@@ -24,38 +32,44 @@ function getMousePos(mouse) {
     };
 }
 
-//Event :
-window.addEventListener('load', () => {
-    const palette = document.querySelectorAll('.color');
-    const tool = document.querySelectorAll('.tools');
-
-    bMouseDown = false;
-    ctx.lineWidth = 5;
+//This function allow us to load all the stuff on begin :  
+function OnBegin() {
+    //Some default value : 
     let lastColor = null;
     let lastTool = null;
+    bMouseDown = false;
+    firstColor.style.border = '1px solid white';
+    elementPen.style.border = '1px solid white';
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+    ChangeCursor("pen_cursor");
 
 
     //Loop for each color item : 
     palette.forEach(element => {
-        element.style.border = '1px solid black';
         element.addEventListener('click', function() {
             if (lastColor) lastColor.style.border = '1px solid black';
             ctx.strokeStyle = this.id;
+            firstColor.style.border = '1px solid black';
             this.style.border = '1px solid white';
             lastColor = this;
         })
     });
 
-
     //Loop for each tool item : 
-    tool.forEach(element => {
-        element.style.border = 'none';
+    tools.forEach(element => {
         element.addEventListener('click', function() {
             if (lastTool) lastTool.style.border = 'none';
+            elementPen.style.border = 'none';
             this.style.border = '1px solid white';
             lastTool = this;
         })
     });
+}
+
+//Event :
+window.addEventListener('load', () => {
+    OnBegin();
 })
 
 canvas.addEventListener("mousedown", (e) => {
@@ -81,7 +95,6 @@ function draw(e) {
     else
         ctx.globalCompositeOperation = "destination-out";
 
-    ctx.lineCap = "round";
     ctx.lineTo(getMousePos(e).x, getMousePos(e).y);
     ctx.stroke();
 }
