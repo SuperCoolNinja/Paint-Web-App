@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgba(24, 23, 23, 0.76);
+}
+
+
+/*MAIN CONTAINER WHICH CONTAIN OUR 2 BOX PAINT BOX AND PALETTE BOX*/
+
+.container {
+    position: relative;
+    width: 1900px;
+    height: 650px;
+}
+
+.palette {
+    position: absolute;
+    width: 330px;
+    height: 190px;
+    background: rgba(0, 0, 0, 0.500);
+    top: 15%;
+    right: 200px;
+    border: black solid;
+    border-radius: 10px;
+}
+
+
+/*COLOR GRID : */
+
+ul {
+    list-style: none;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 15px 20px;
+}
+
+ul li {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: #000;
+    border: solid black 1px;
+}
+
+ul li:hover {
+    transform: scale(1.1);
+}
+
+
+/*DRAW PAINT BOX : */
+
+#box {
+    display: block;
+    border: solid black 3px;
+    border-radius: 5px;
+    margin: 150px auto;
+    background: rgba(240, 240, 240, 0.904);
+}
+
+
+/*COLOR PALETTE ID : */
+
+#black {
+    background: black
+}
+
+#red {
+    background: red
+}
+
+#aqua {
+    background: aqua
+}
+
+#orange {
+    background: orange
+}
+
+#lime {
+    background: lime
+}
+
+#brown {
+    background: brown
+}
+
+#purple {
+    background: purple
+}
+
+#blueviolet {
+    background: blueviolet
+}
+
+#mediumblue {
+    background: mediumblue
+}
+
+#yellow {
+    background: yellow
+}
+
+#seagreen {
+    background: seagreen
+}
+
+#gray {
+    background: gray
+}
+
+
+/*LINE SEPARATION : */
+
+hr {
+    top: 60%;
+    right: 15px;
+    position: absolute;
+    width: 90%;
+    height: 0;
+    border: black solid 1px;
+}
+
+
+/*TOOL : */
+
+.tool {
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    margin-left: -115px;
+}
+
+.tool ul {
+    grid-gap: 5px 40px;
+}
+
+button[id="eraser"] {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: url('./img/eraser.png');
+    border: none;
+}
+
+button[id="pen"] {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: url('./img/pen.png');
+    border: none;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
