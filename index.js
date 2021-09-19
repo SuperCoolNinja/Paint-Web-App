@@ -84,5 +84,4 @@ function draw(e) {
     ctx.lineCap = "round";
     ctx.lineTo(getMousePos(e).x, getMousePos(e).y);
     ctx.stroke();
-    ctx.beginPath();
 }
