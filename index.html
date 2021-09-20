@@ -12,7 +12,7 @@
     <div class="container">
         <canvas id="box" width="800" height="450"></canvas>
         <div class="palette">
-            <ul>
+            <ul id="colors">
                 <li class="color" id="black"></li>
                 <li class="color" id="red"></li>
                 <li class="color" id="aqua"></li>
@@ -26,12 +26,23 @@
                 <li class="color" id="seagreen"></li>
                 <li class="color" id="gray"></li>
             </ul>
-            <hr>
+            <hr id="one">
+            <hr id="second">
 
             <div class="tool">
                 <ul>
                     <button class="tools" id="pen"></button>
                     <button class="tools" id="eraser"></button>
+                </ul>
+            </div>
+
+
+            <div class="radius">
+                <ul>
+                    <button class="size" id="standart"></button>
+                    <button class="size" id="small"></button>
+                    <button class="size" id="normal"></button>
+                    <button class="size" id="bigger"></button>
                 </ul>
             </div>
         </div>

@@ -7,7 +7,10 @@ const elementPen = document.getElementById("pen");
 const elementErase = document.getElementById('eraser');
 const palette = document.querySelectorAll('.color');
 const tools = document.querySelectorAll('.tools');
+const radius = document.querySelectorAll('.size');
 const firstColor = document.getElementById('black');
+const firstRadiusSize = document.getElementById('standart');
+
 
 //Select new cursor : 
 function ChangeCursor(cursor) {
@@ -28,10 +31,13 @@ function OnBegin() {
     //Some default value : 
     let lastColor = null;
     let lastTool = null;
+    let lastRadius = null;
     bMouseDown = false;
     firstColor.style.border = '1px solid white';
     elementPen.style.border = '1px solid white';
-    ctx.lineWidth = 5;
+    firstRadiusSize.style.border = '1px solid white';
+
+    ctx.lineWidth = 1;
     ctx.lineCap = "round";
     ChangeCursor("pen_cursor");
 
@@ -54,6 +60,34 @@ function OnBegin() {
             elementPen.style.border = 'none';
             this.style.border = '1px solid white';
             lastTool = this;
+        })
+    });
+
+    //Loop for each radius item : 
+    radius.forEach(element => {
+        element.addEventListener('click', function() {
+            if (lastRadius) lastRadius.style.border = '1px solid black';
+            firstRadiusSize.style.border = '1px solid black';
+            this.style.border = '1px solid white';
+            lastRadius = this;
+
+            console.log(this.id)
+            switch (this.id) {
+                case "standart":
+                    ctx.lineWidth = 1;
+                    break;
+                case "small":
+                    ctx.lineWidth = 5;
+                    break;
+                case "normal":
+                    ctx.lineWidth = 15;
+                    break;
+                case "bigger":
+                    ctx.lineWidth = 25;
+                    break;
+                default:
+                    ctx.lineWidth = 1;
+            }
         })
     });
 }

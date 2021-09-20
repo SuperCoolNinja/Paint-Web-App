@@ -20,7 +20,7 @@ body {
 .palette {
     position: absolute;
     width: 330px;
-    height: 190px;
+    height: 250px;
     background: rgba(0, 0, 0, 0.500);
     top: 15%;
     right: 200px;
@@ -31,7 +31,7 @@ body {
 
 /*COLOR GRID : */
 
-ul {
+ul[id="colors"] {
     list-style: none;
     padding: 20px;
     display: grid;
@@ -39,7 +39,7 @@ ul {
     grid-gap: 15px 20px;
 }
 
-ul li {
+ul[id="colors"] li {
     border-radius: 50%;
     width: 32px;
     height: 32px;
@@ -48,7 +48,7 @@ ul li {
     border: solid black 1px;
 }
 
-ul li:hover {
+ul[id="colors"] li:hover {
     transform: scale(1.1);
 }
 
@@ -117,8 +117,17 @@ ul li:hover {
 
 /*LINE SEPARATION : */
 
-hr {
-    top: 60%;
+hr[id="one"] {
+    top: 48%;
+    right: 15px;
+    position: absolute;
+    width: 90%;
+    height: 0;
+    border: black solid 1px;
+}
+
+hr[id="second"] {
+    top: 70%;
     right: 15px;
     position: absolute;
     width: 90%;
@@ -131,13 +140,15 @@ hr {
 
 .tool {
     position: absolute;
-    top: 60%;
-    left: 60%;
+    top: 53%;
+    left: 70%;
     margin-left: -115px;
 }
 
 .tool ul {
-    grid-gap: 5px 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0px 25px;
 }
 
 button[id="eraser"] {
@@ -158,4 +169,54 @@ button[id="pen"] {
 
 button:hover {
     transform: scale(1.1);
+}
+
+
+/*radius*/
+
+.radius ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.radius {
+    position: absolute;
+    top: 80%;
+    left: 68%;
+    margin-left: -115px;
+}
+
+button[id="standart"] {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background: #000;
+    border: none;
+}
+
+button[id="small"] {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border: none;
+}
+
+button[id="normal"] {
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    background: #000;
+    border: none;
+}
+
+button[id="bigger"] {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: #000;
+    border: none;
 }
