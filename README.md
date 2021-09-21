@@ -1,5 +1,5 @@
 # PaintAPP_Project
-I created this Pain app using HTML5/CSS/JS for learning purpose and decided to share my code for all wanted to work with.
+I created this Paint app using HTML5/CSS/JS for learning purpose and decided to share my code for all wanted to work with.
 
  
 
