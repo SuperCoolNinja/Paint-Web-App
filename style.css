@@ -1,222 +1,213 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: rgba(24, 23, 23, 0.76);
+  background: rgba(24, 23, 23, 0.76);
 }
-
 
 /*MAIN CONTAINER WHICH CONTAIN OUR 2 BOX PAINT BOX AND PALETTE BOX*/
 
 .container {
-    position: relative;
-    width: 1900px;
-    height: 650px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .palette {
-    position: absolute;
-    width: 330px;
-    height: 250px;
-    background: rgba(0, 0, 0, 0.500);
-    top: 15%;
-    right: 200px;
-    border: black solid;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 330px;
+  background: rgba(0, 0, 0, 0.5);
+  border: black solid;
+  border-radius: 10px;
+  gap: 2rem;
+  padding: 1rem;
 }
-
 
 /*COLOR GRID : */
 
 ul[id="colors"] {
-    list-style: none;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-gap: 15px 20px;
+  list-style: none;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 15px 20px;
 }
 
 ul[id="colors"] li {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    background: #000;
-    border: solid black 1px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  background: #000;
+  border: solid black 1px;
 }
 
 ul[id="colors"] li:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 
 /*DRAW PAINT BOX : */
 
 #box {
-    display: block;
-    border: solid black 3px;
-    border-radius: 5px;
-    margin: 150px auto;
-    background: rgba(240, 240, 240, 0.904);
+  display: block;
+  border: solid black 3px;
+  border-radius: 5px;
+  background: rgba(240, 240, 240, 0.904);
 }
-
-
-/*COLOR PALETTE ID : */
-
-#black {
-    background: black
-}
-
-#red {
-    background: red
-}
-
-#aqua {
-    background: aqua
-}
-
-#orange {
-    background: orange
-}
-
-#lime {
-    background: lime
-}
-
-#brown {
-    background: brown
-}
-
-#purple {
-    background: purple
-}
-
-#blueviolet {
-    background: blueviolet
-}
-
-#mediumblue {
-    background: mediumblue
-}
-
-#yellow {
-    background: yellow
-}
-
-#seagreen {
-    background: seagreen
-}
-
-#gray {
-    background: gray
-}
-
 
 /*LINE SEPARATION : */
 
 hr[id="one"] {
-    top: 48%;
-    right: 15px;
-    position: absolute;
-    width: 90%;
-    height: 0;
-    border: black solid 1px;
+  width: 90%;
+  height: 0;
+  border: black solid 1px;
 }
 
 hr[id="second"] {
-    top: 70%;
-    right: 15px;
-    position: absolute;
-    width: 90%;
-    height: 0;
-    border: black solid 1px;
+  width: 90%;
+  height: 0;
+  border: black solid 1px;
 }
-
 
 /*TOOL : */
-
-.tool {
-    position: absolute;
-    top: 53%;
-    left: 70%;
-    margin-left: -115px;
-}
-
-.tool ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0px 25px;
+.tool > ul {
+  display: flex;
+  gap: 2rem;
 }
 
 button[id="eraser"] {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    background: url('./img/eraser.png');
-    border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background: url("./img/eraser.png");
+  border: none;
 }
 
 button[id="pen"] {
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    background: url('./img/pen.png');
-    border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  background: url("./img/pen.png");
+  border: none;
 }
 
 button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
-
 
 /*radius*/
 
 .radius ul {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-}
-
-.radius {
-    position: absolute;
-    top: 80%;
-    left: 68%;
-    margin-left: -115px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
 }
 
 button[id="standart"] {
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    background: #000;
-    border: none;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border: none;
 }
 
 button[id="small"] {
-    border-radius: 50%;
-    width: 15px;
-    height: 15px;
-    background: #000;
-    border: none;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  background: #000;
+  border: none;
 }
 
 button[id="normal"] {
-    border-radius: 50%;
-    width: 23px;
-    height: 23px;
-    background: #000;
-    border: none;
+  border-radius: 50%;
+  width: 23px;
+  height: 23px;
+  background: #000;
+  border: none;
 }
 
 button[id="bigger"] {
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    background: #000;
-    border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  background: #000;
+  border: none;
+}
+
+/*COLOR PALETTE ID : */
+
+#black {
+  background: black;
+}
+
+#red {
+  background: red;
+}
+
+#aqua {
+  background: aqua;
+}
+
+#orange {
+  background: orange;
+}
+
+#lime {
+  background: lime;
+}
+
+#brown {
+  background: brown;
+}
+
+#purple {
+  background: purple;
+}
+
+#blueviolet {
+  background: blueviolet;
+}
+
+#mediumblue {
+  background: mediumblue;
+}
+
+#yellow {
+  background: yellow;
+}
+
+#seagreen {
+  background: seagreen;
+}
+
+#gray {
+  background: gray;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 700px) {
+  #box {
+    width: 100%;
+  }
+
+  #colors {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+  }
 }
